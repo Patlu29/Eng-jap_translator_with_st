@@ -65,6 +65,21 @@ def get_translation(english):
     c.execute("SELECT japanese_text, romanji_text, audio FROM translations WHERE english_text = ?", (english,))
     return c.fetchone()
 
+def view_saved_translations():
+    """Retrieve and display saved translations from the database."""
+    c.execute("SELECT id, english_text, japanese_text, romanji_text, audio FROM translations")
+    rows = c.fetchall()
+    if rows:
+        for row in rows:
+            st.write(f"**ID:** {row[0]}")
+            st.write(f"**English:** {row[1]}")
+            st.write(f"**Japanese:** {row[2]}")
+            st.write(f"**Romanji:** {row[3]}")
+            st.audio(row[4], format="audio/mp3")
+            st.write("---")
+    else:
+        st.write("No translations saved yet.")
+
 # Streamlit UI
 st.markdown(
     """
@@ -127,48 +142,6 @@ st.markdown(
       margin: 20px auto;
       width: 90%;
       max-width: 800px;
-    }
-    .textimg {
-      width: 3rem;
-      height: 2.5rem;
-      margin-bottom: -5px;
-    }
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-      h2, p {
-        font-size: 1.25rem;
-      }
-      textarea {
-        font-size: 0.9rem;
-      }
-      button {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-      }
-      audio {
-        width: 80%;
-      }
-    }
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-      h2, p {
-        font-size: 1.1rem;
-      }
-      textarea {
-        font-size: 0.85rem;
-        padding: 10px;
-      }
-      button {
-        padding: 8px 12px;
-        font-size: 0.85rem;
-      }
-      audio {
-        width: 90%;
-      }
     }
     </style>
     """,
