@@ -3,6 +3,4 @@ torch
 transformers
 pykakasi
 gtts
-fastapi
-uvicorn
-pybase64
+sentencepiece
