@@ -74,3 +74,56 @@ if st.button("View Saved Translations"):
         st.write(f"Japanese: {item[1]}")
         st.write(f"Romanji: {item[2]}")
         st.audio(f"audio_files/{item[3]}", format="audio/mp3")
+
+
+
+
+
+
+# Apply custom CSS styles
+st.markdown("""
+    <style>
+        .stApp {
+            background-color: #f2f1f7;
+            font-family: 'Arial', sans-serif;
+            color: #2d046e;
+        }
+        .stTitle title{
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #2d046e;
+        }
+        .stSubHeader subheader {
+            border: 2px solid #2d046e;
+            color: #2d046e;
+        }
+        .stTextArea textarea {
+            background-color: #f2f1f7;
+            border: 2px solid #2d046e;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            color: #2d046e;
+        }
+        .stButton>button {
+            background-color: #2d046e;
+            color: white;
+            font-size: 18px;
+            border-radius: 10px;
+            padding: 10px 20px;
+        }
+        .stButton>button:hover {
+            background-color: #f2f1f7;
+            color: #2d046e;
+            border: 2px solid #2d046e;
+        }
+        .stSlidebar {
+            background-color: #2d046e;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+    </style>
+    """, unsafe_allow_html=True)
