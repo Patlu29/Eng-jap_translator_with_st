@@ -9,6 +9,7 @@ import io
 # Page configuration
 st.set_page_config(
     page_title="End-Jap Translator",
+    page_icon="logo.png",
     layout="centered",
     initial_sidebar_state="collapsed"
 )
