@@ -23,7 +23,7 @@ st.markdown("""
     }
     .title {
         text-align: center;
-        font-size: 50px;
+        font-size: 50px! important;
         font-weight: bold;
         color: #00004d;
     }
