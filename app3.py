@@ -6,8 +6,12 @@ import pykakasi
 from gtts import gTTS
 import io
 
-# Install dependencies
-# !pip install streamlit torch transformers pykakasi gtts
+# page config
+st.set_page_config(
+    page_title="End-Jap Translator",
+    layout="centered",  # Optional: Makes UI look better
+    initial_sidebar_state="collapsed"  # This keeps the sidebar closed by default
+)
 
 # Load the translation model and tokenizer
 MODEL_NAME = "Patlu29/eng-jap_trans"
@@ -79,75 +83,8 @@ def view_saved_translations():
             st.write("---")
     else:
         st.write("No translations saved yet.")
-
-# Streamlit UI
-st.markdown(
-    """
-    <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f2f1f7;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    h1 {
-      text-align: center;
-      color: #2d046e;
-      font-size: 2.5rem;
-      margin-top: 20px;
-    }
-    h2, p, h5 {
-      text-align: center;
-      color: #2d046e;
-      font-size: 1.5rem;
-      margin-top: 20px;
-    }
-    textarea {
-      width: 90%;
-      max-width: 800px;
-      padding: 15px;
-      margin: 20px auto;
-      display: block;
-      font-size: 1rem;
-      border: 2px solid #2d046e;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      background-color: #ffffff;
-      color: #333;
-    }
-    button {
-      display: block;
-      margin: 0 auto;
-      padding: 12px 20px;
-      background-color: #2d046e;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    button:hover {
-      background-color: #4b12a3;
-      transform: translateY(-2px);
-    }
-    button:active {
-      transform: translateY(0);
-    }
-    audio {
-      display: block;
-      margin: 20px auto;
-      width: 90%;
-      max-width: 800px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
+        
+# web app UI
 st.title("English to Japanese Translator")
 
 english_text = st.text_area("Enter English text:", "")
@@ -173,5 +110,5 @@ if st.button("Translate"):
     else:
         st.error("Please enter text to translate.")
 
-if st.button("View Saved Translations"):
+if st.sidebar.button("View Saved Translations"):
     view_saved_translations()
