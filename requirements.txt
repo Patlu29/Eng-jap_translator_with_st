@@ -4,3 +4,4 @@ transformers
 pykakasi
 gtts
 sentencepiece
+pytest
