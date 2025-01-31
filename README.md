@@ -60,7 +60,10 @@ Streamlit will start on http://localhost:8501
 
 Deployment: Streamlit cloud
 
+# Test
 
+- Pytest conducted and successfully completed
+  
 # Future Improvements
 
 🔹 Add user authentication (JWT)
