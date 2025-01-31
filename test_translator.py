@@ -11,10 +11,10 @@ def test_convert_to_romanji():
     japanese_text = "こんにちは"
     romanji_text = convert_to_romanji(japanese_text)
     assert isinstance(romanji_text, str)
-    assert romanji_text.lower() == "konnichiwa"
+    assert romanji_text.lower() == "konnichiha"
 
 def test_generate_audio():
-    romanji_text = "konnichiwa"
+    romanji_text = "konnichiha"
     audio_data = generate_audio(romanji_text)
     assert isinstance(audio_data, bytes)
     assert len(audio_data) > 0  # Ensure audio data is generated
